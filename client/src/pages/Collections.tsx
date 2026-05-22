@@ -213,8 +213,13 @@ export default function Collections() {
   );
 
   return (
-    <div className="section-spacing">
-      <div className="container">
+    <div className="bg-[#FEFEFE]">
+      {/* Banner Image - full width, touches header */}
+      <div className="w-full h-[180px] bg-muted flex items-center justify-center text-muted-foreground text-sm">
+        Banner Image
+      </div>
+      <div className="section-spacing pt-4 md:pt-6">
+        <div className="container">
         {/* Header */}
         <div className="mb-8">
           <h1 className="heading-serif text-3xl md:text-4xl text-foreground">{title}</h1>
@@ -373,6 +378,7 @@ export default function Collections() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

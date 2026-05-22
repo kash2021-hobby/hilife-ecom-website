@@ -87,7 +87,7 @@ export default function ProductDetail() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-background pt-20 pb-20">
+      <div className="min-h-screen bg-[#FEFEFE] pt-20 pb-20">
         <div className="container grid grid-cols-1 md:grid-cols-2 gap-12">
           <Skeleton className="aspect-square rounded-xl" />
           <div className="space-y-6">
@@ -102,7 +102,7 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-background pt-20 pb-20 flex items-center justify-center">
+      <div className="min-h-screen bg-[#FEFEFE] pt-20 pb-20 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-semibold mb-4">Product not found</h1>
           <Link href="/collections">
@@ -118,7 +118,7 @@ export default function ProductDetail() {
   const hasDiscount = product.compareAtPrice && parseFloat(product.compareAtPrice) > parseFloat(product.price);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#FEFEFE]">
       <div className="container pt-20 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
           {/* Image Gallery */}
@@ -213,7 +213,7 @@ export default function ProductDetail() {
             {/* Quantity + Add to Cart */}
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <div className="flex items-center rounded-full border border-border bg-background flex-[0_0_30%] px-1 py-1">
+                <div className="flex items-center rounded-full border border-border bg-[#FEFEFE] flex-[0_0_30%] px-1 py-1">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
                     className="w-7 h-7 flex items-center justify-center text-brand-green hover:text-brand-green/70 transition-colors rounded-full hover:bg-brand-green/5"
@@ -243,7 +243,7 @@ export default function ProductDetail() {
                 onClick={handleBuyNow}
                 disabled={isBuying || !selectedVariant}
                 variant="outline"
-                className="w-full py-2.5 rounded-lg border-brand-green/70 text-brand-green bg-background hover:bg-brand-green/5 text-sm"
+                className="w-full py-2.5 rounded-lg border-brand-green/70 text-brand-green bg-[#FEFEFE] hover:bg-brand-green/5 text-sm"
               >
                 {isBuying ? "Processing..." : "Buy Now"}
               </Button>
