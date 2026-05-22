@@ -1,0 +1,261 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-serif: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* KN Naturals Premium Wellness Color Palette */
+:root {
+  /* Deep Botanical Green - primary brand color */
+  --primary: oklch(0.35 0.08 145);
+  --primary-foreground: oklch(0.98 0.005 90);
+  /* Warm Cream - main background */
+  --background: oklch(0.975 0.008 85);
+  --foreground: oklch(0.25 0.02 50);
+  /* Soft Beige - cards */
+  --card: oklch(0.99 0.005 85);
+  --card-foreground: oklch(0.25 0.02 50);
+  /* Popover */
+  --popover: oklch(0.995 0.003 85);
+  --popover-foreground: oklch(0.25 0.02 50);
+  /* Secondary - soft sage */
+  --secondary: oklch(0.94 0.015 140);
+  --secondary-foreground: oklch(0.30 0.06 145);
+  /* Muted - warm neutral */
+  --muted: oklch(0.95 0.008 80);
+  --muted-foreground: oklch(0.50 0.02 60);
+  /* Accent - muted gold */
+  --accent: oklch(0.88 0.06 85);
+  --accent-foreground: oklch(0.30 0.05 60);
+  /* Destructive */
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  /* Borders */
+  --border: oklch(0.90 0.012 80);
+  --input: oklch(0.92 0.01 80);
+  --ring: oklch(0.40 0.08 145);
+  /* Charts */
+  --chart-1: oklch(0.45 0.10 145);
+  --chart-2: oklch(0.55 0.08 145);
+  --chart-3: oklch(0.65 0.06 85);
+  --chart-4: oklch(0.75 0.05 85);
+  --chart-5: oklch(0.85 0.03 85);
+  /* Sidebar */
+  --sidebar: oklch(0.97 0.008 85);
+  --sidebar-foreground: oklch(0.25 0.02 50);
+  --sidebar-primary: oklch(0.35 0.08 145);
+  --sidebar-primary-foreground: oklch(0.98 0.005 90);
+  --sidebar-accent: oklch(0.94 0.015 140);
+  --sidebar-accent-foreground: oklch(0.30 0.06 145);
+  --sidebar-border: oklch(0.90 0.012 80);
+  --sidebar-ring: oklch(0.40 0.08 145);
+  /* Radius */
+  --radius: 0.5rem;
+  /* Custom brand tokens */
+  --color-brand-green: oklch(0.35 0.08 145);
+  --color-brand-green-light: oklch(0.45 0.10 145);
+  --color-brand-cream: oklch(0.975 0.008 85);
+  --color-brand-beige: oklch(0.94 0.012 80);
+  --color-brand-gold: oklch(0.72 0.10 85);
+  --color-brand-gold-light: oklch(0.82 0.08 85);
+  --color-brand-brown: oklch(0.40 0.05 55);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    overflow-x: clip;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    touch-action: pan-y pinch-zoom;
+    overscroll-behavior-x: none;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1320px;
+    }
+  }
+
+  /* Premium section spacing */
+  .section-spacing {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-spacing {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+
+  /* Elegant serif heading */
+  .heading-serif {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  /* Premium button styles */
+  .btn-premium {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    padding: 0.875rem 2rem;
+    transition: all 0.3s ease;
+  }
+
+  /* Gold accent line */
+  .gold-accent {
+    width: 40px;
+    height: 2px;
+    background: var(--color-brand-gold);
+  }
+
+  /* Fade in animation */
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@keyframes marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  .text-brand-green {
+    color: var(--color-brand-green);
+  }
+  .bg-brand-cream {
+    background-color: var(--color-brand-cream);
+  }
+  .bg-brand-beige {
+    background-color: var(--color-brand-beige);
+  }
+  .text-brand-gold {
+    color: var(--color-brand-gold);
+  }
+  .border-brand-gold {
+    border-color: var(--color-brand-gold);
+  }
+  .bg-brand-green {
+    background-color: var(--color-brand-green);
+  }
+
+  /* HiLife Cinematic Scroll Section Colors */
+  .bg-hilife-cream { background-color: #F5EFE0; }
+  .text-hilife-gold { color: #C9A961; }
+  .text-hilife-green { color: #4A6B3A; }
+  .text-hilife-deep-green { color: #2D4A2B; }
+  .border-hilife-gold { border-color: #C9A961; }
+}
+
+/* Product description: render Shopify HTML as-is, no italic overrides */
+.product-description em,
+.product-description i,
+.product-description blockquote,
+.product-description cite,
+.product-description dfn,
+.product-description address {
+  font-style: normal !important;
+}
